@@ -1,4 +1,4 @@
-import { notFound } from "../errors/notfound.js";
+import { notFound } from "../errors/notFound.js";
 import dayjs from "dayjs";
 import flightsRepository from "../repositories/flights.repository.js";
 import { unprocessableEntity } from "../errors/unprocessableEntity.js";
