@@ -17,7 +17,7 @@ export default function errorHandler(error, req, res, next) {
     return res.status(httpStatus.UNPROCESSABLE_ENTITY).send(error.message);
   }
 
-  if (error.type === "destinationError") {
+  if (error.type === "destinationError" || "doesntExist") {
     return res.status(httpStatus.NOT_FOUND).send(error.message);
   }
 
