@@ -15,6 +15,7 @@ export async function postPassenger(req, res) {
 }
 
 export async function getPassengersTravels(req, res) {
-  const passengersTravels = await passengersService.getPassengersTravels();
+  const { name } = req.query;
+  const passengersTravels = await passengersService.getPassengersTravels(name);
   res.send(passengersTravels);
 }
