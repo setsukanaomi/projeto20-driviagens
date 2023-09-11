@@ -9,5 +9,6 @@ export async function postCity(req, res) {
   if (!name) throw incompleteData();
 
   await citiesService.createCity(name);
+
   res.sendStatus(httpStatus.CREATED);
 }
