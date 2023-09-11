@@ -14,3 +14,17 @@ export async function postFlight(req, res) {
 
   res.sendStatus(httpStatus.CREATED);
 }
+
+export async function getFlights(req, res) {
+  const { origin, destination } = req.query;
+  const dateBigger = req.query["bigger-date"];
+  const dateSmaller = req.query["smaller-date"];
+
+  const flights = await flightsService.getFlights(
+    origin,
+    destination,
+    dateBigger,
+    dateSmaller
+  );
+  res.send(flights);
+}

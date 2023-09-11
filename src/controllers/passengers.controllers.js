@@ -13,3 +13,8 @@ export async function postPassenger(req, res) {
 
   res.sendStatus(httpStatus.CREATED);
 }
+
+export async function getPassengersTravels(req, res) {
+  const passengersTravels = await passengersService.getPassengersTravels();
+  res.send(passengersTravels);
+}

@@ -12,3 +12,4 @@ export async function postTravel(req, res) {
 
   res.sendStatus(httpStatus.CREATED);
 }
+

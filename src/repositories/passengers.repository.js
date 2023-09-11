@@ -9,8 +9,25 @@ async function insertPassenger(passenger) {
   );
 }
 
+async function getPassengersTravels() {
+  const passengersTravels = await db.query(`SELECT
+  p."firstName" || ' ' || p."lastName" AS passenger,
+  COUNT(t.id) AS travels
+  FROM
+    passengers p
+  LEFT JOIN
+    travels t ON p.id = t."passengerId"
+  GROUP BY
+  p.id, p."firstName", p."lastName";`);
+  return passengersTravels.rows;
+}
+
+async function getPassengersTravelsByName() {}
+
 const passengersRepository = {
   insertPassenger,
+  getPassengersTravels,
+  getPassengersTravelsByName,
 };
 
 export default passengersRepository;

@@ -13,7 +13,7 @@ export default function errorHandler(error, req, res, next) {
     return res.status(httpStatus.UNPROCESSABLE_ENTITY).send(error.message);
   }
 
-  if (error.type === "unprocessableEntity") {
+  if (error.type === "unprocessableEntity" || "datesError" || "invalidDates") {
     return res.status(httpStatus.UNPROCESSABLE_ENTITY).send(error.message);
   }
 
